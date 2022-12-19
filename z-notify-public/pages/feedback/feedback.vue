@@ -176,6 +176,10 @@
 					form.img_urls = form.img_urls.map(file => file.url);
 				}
 				this.loading = true;
+				if (!form.extra_info) {
+					const { deviceModel, deviceType, model, osName, osVersion, platform } = uni.getSystemInfoSync();
+					form.extra_info = JSON.stringify({ deviceModel, deviceType, model, osName, osVersion, platform });
+				}
 				this.$api.feedback(form).then(res => {
 					this.$cache.Contact.set(this.form.contact);
 					this.$cache.ContactType.set(this.form.contactType);

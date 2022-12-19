@@ -14,8 +14,8 @@
 					    class="u-upload__wrap__preview__image"
 					    @tap="onPreviewImage(item)"
 						:style="[{
-							width: $u.addUnit(width),
-							height: $u.addUnit(height)
+							width: '156rpx',
+							height: '156rpx'
 						}]"
 					/>
 					<view
@@ -104,8 +104,8 @@
 				    @tap="chooseFile"
 				    :class="[disabled && 'u-upload__button--disabled']"
 					:style="[{
-						width: $u.addUnit(width),
-						height: $u.addUnit(height)
+						width: '156rpx',
+						height: '156rpx'
 					}]"
 				>
 					<u-icon
