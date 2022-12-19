@@ -68,6 +68,8 @@
 			queryList(current, pageSize) {
 				this.$api.getFeedbackList(this.projectId, this.username).then(res => {
 					this.$refs.paging.complete(res.data);
+				}).catch(() => {
+					this.$refs.paging.complete(false);
 				})
 			},
 			del(index) {

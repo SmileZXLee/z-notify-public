@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<u-navbar title="提交反馈" :titleStyle="{'font-weight': 700, color: 'black'}" placeholder leftIcon="" rightIcon="list-dot" @rightClick="toMyFeedback">
+		<u-navbar title="提交反馈" :titleStyle="{'font-weight': 700, color: 'black'}" placeholder leftIcon="" :rightIcon="form.username.length ? 'list-dot' : ''" @rightClick="toMyFeedback">
 		</u-navbar>
 		<u-alert v-if="!!errorTip" :title="errorTip" type="error" :show-icon="true"></u-alert>
 		<view class="feedback-concat">
@@ -128,7 +128,7 @@
 				}
 			},
 			toMyFeedback() {
-				if (this.errorTip) return;
+				if (this.errorTip || !this.form.username) return;
 				uni.navigateTo({
 					url: `../my-feedback/my-feedback?project_id=${this.form.project_id}&username=${this.form.username}`
 				})
